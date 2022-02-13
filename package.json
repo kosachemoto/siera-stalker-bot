@@ -1,0 +1,19 @@
+{
+  "name": "siera-stalker-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kosachemoto/siera-stalker-bot.git"
+  },
+  "author": "kosachemoto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kosachemoto/siera-stalker-bot/issues"
+  },
+  "homepage": "https://github.com/kosachemoto/siera-stalker-bot#readme"
+}
