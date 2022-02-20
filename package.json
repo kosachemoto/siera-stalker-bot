@@ -1,5 +1,5 @@
 {
-  "name": "siera-stalker-bot",
+  "name": "sivera-stalker-bot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kosachemoto/siera-stalker-bot.git"
+    "url": "git+https://github.com/kosachemoto/sivera-stalker-bot.git"
   },
   "author": "kosachemoto",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kosachemoto/siera-stalker-bot/issues"
+    "url": "https://github.com/kosachemoto/sivera-stalker-bot/issues"
   },
-  "homepage": "https://github.com/kosachemoto/siera-stalker-bot#readme",
+  "homepage": "https://github.com/kosachemoto/sivera-stalker-bot#readme",
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "scrape-it": "^5.3.2"
+  },
   "devDependencies": {
     "typescript": "^4.5.5"
   }
