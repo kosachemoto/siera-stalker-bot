@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/kosachemoto/sivera-stalker-bot#readme",
   "dependencies": {
+    "@types/cron": "^1.7.3",
     "classnames": "^2.3.1",
+    "cron": "^1.8.2",
+    "dotenv": "^16.0.0",
+    "grammy": "^1.7.0",
     "scrape-it": "^5.3.2"
   },
   "devDependencies": {
