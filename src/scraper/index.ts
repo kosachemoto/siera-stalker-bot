@@ -10,6 +10,8 @@ import {
 } from '../common/consts';
 import { ProductItem } from '../common/types';
 
+import { RawScrapeData } from './types';
+
 export class Scraper {
     private url: string;
     private options: scrapeIt.ScrapeOptions;
@@ -28,12 +30,12 @@ export class Scraper {
     }
 
     async scrape(): Promise<ProductItem[]> {
-        return scrapeIt<ProductItem[]>(this.url, this.options).then(({ data, response }) => {
+        return scrapeIt<RawScrapeData>(this.url, this.options).then(({ data, response }) => {
             if (response.statusCode !== 200) {
                 throw new Error(`Status: ${response.statusCode}`);
             }
 
-            return data;
+            return data.items;
         }).catch((err) => {
             console.log('Что-то пошло не так:', err);
             return [];
