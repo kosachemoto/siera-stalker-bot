@@ -25,13 +25,16 @@ export class Main {
         this.botWare = new BotWare();
 
         this.observer.subscribe((data) => {
-            this.dataStorage.get().then((previousData) => {
-                const productDiff = new ProductDiff(previousData, data);
-                this.botWare.sendRecord(productDiff);
-                this.dataStorage.set(data);
-            }).catch((err) => {
-                console.log('Something wrong:', err);
-            })
+            this.dataStorage
+                .get()
+                .then((previousData) => {
+                    const productDiff = new ProductDiff(previousData, data);
+                    this.botWare.sendRecord(productDiff);
+                    this.dataStorage.set(data);
+                })
+                .catch((err) => {
+                    console.log('Something wrong:', err);
+                });
         });
     }
 

@@ -11,18 +11,22 @@ export class DataStorage<T> {
 
     constructor() {
         this.value = readFile(DataStorage.fileName, {
-            flag: 'a+'
-        }).then<T>((data) => {
-            return JSON.parse(data.toString());
-        }).catch(() => undefined);
+            flag: 'a+',
+        })
+            .then<T>((data) => {
+                return JSON.parse(data.toString());
+            })
+            .catch(() => undefined);
     }
 
     async get() {
         return readFile(DataStorage.fileName, {
-            flag: 'a+'
-        }).then<T>((data) => {
-            return JSON.parse(data.toString());
-        }).catch(() => undefined);
+            flag: 'a+',
+        })
+            .then<T>((data) => {
+                return JSON.parse(data.toString());
+            })
+            .catch(() => undefined);
     }
 
     async set(value: T) {

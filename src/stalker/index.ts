@@ -21,20 +21,29 @@ export class Stalker<T extends ObserverCallback> {
     }
 
     private onTick = () => {
-        this.scraper.scrape().then((data) => {
-            this.observer.publish(data);
-        }).catch((err) => {
-            console.log('Something wrong:', err);
-        });
-    }
+        this.scraper
+            .scrape()
+            .then((data) => {
+                this.observer.publish(data);
+            })
+            .catch((err) => {
+                console.log('Something wrong:', err);
+            });
+    };
 
     constructor(scraper: Scraper, observer: Observer<T>) {
         this.scraper = scraper;
         this.observer = observer;
 
-        this.cronJob = new CronJob(CRON_TIME, () => {
-            Stalker.scheduleEvent(this.onTick);
-        }, undefined, undefined, "Europe/Moscow");
+        this.cronJob = new CronJob(
+            CRON_TIME,
+            () => {
+                Stalker.scheduleEvent(this.onTick);
+            },
+            undefined,
+            undefined,
+            'Europe/Moscow'
+        );
     }
 
     start() {

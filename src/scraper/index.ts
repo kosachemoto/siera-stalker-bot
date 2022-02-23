@@ -7,6 +7,7 @@ import {
     PRODUCT_ITEM_SELECTOR,
     TITLE_SELECTOR,
     PRICE_SELECTOR,
+    MOCK_RESPONSE,
 } from '../common/consts';
 import { ProductItem } from '../common/types';
 
@@ -24,21 +25,23 @@ export class Scraper {
                 data: {
                     title: TITLE_SELECTOR,
                     price: PRICE_SELECTOR,
-                }
+                },
             },
         };
     }
 
     async scrape(): Promise<ProductItem[]> {
-        return scrapeIt<RawScrapeData>(this.url, this.options).then(({ data, response }) => {
-            if (response.statusCode !== 200) {
-                throw new Error(`Status: ${response.statusCode}`);
-            }
+        return scrapeIt<RawScrapeData>(this.url, this.options)
+            .then(({ data, response }) => {
+                if (response.statusCode !== 200) {
+                    throw new Error(`Status: ${response.statusCode}`);
+                }
 
-            return data.items;
-        }).catch((err) => {
-            console.log('Что-то пошло не так:', err);
-            return [];
-        })
+                return data.items;
+            })
+            .catch((err) => {
+                console.log('Что-то пошло не так:', err);
+                return [];
+            });
     }
 }

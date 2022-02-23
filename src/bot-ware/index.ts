@@ -21,14 +21,29 @@ export class BotWare {
 
         try {
             const result = [
-                removed.length ? `*Убыло:*\n${removed.map(({ title, price }) => `\`${title}\n${price}\`\n`).join('')}` : '',
-                added.length ? `*Прибыло:*\n${added.map(({ title, price }) => `\`${title}\n${price}\`\n`).join('')}` : '',
-                merged.length ? `*Поменялось:*\n${merged.map(({ oldItem, newItem }) => `\`${oldItem.title}\n${oldItem.price} > ${newItem.price}\`\n`).join('')}` : '',
+                removed.length
+                    ? `*Убыло:*\n${removed
+                          .map(({ title, price }) => `\`${title}\n${price}\`\n`)
+                          .join('')}`
+                    : '',
+                added.length
+                    ? `*Прибыло:*\n${added
+                          .map(({ title, price }) => `\`${title}\n${price}\`\n`)
+                          .join('')}`
+                    : '',
+                merged.length
+                    ? `*Поменялось:*\n${merged
+                          .map(
+                              ({ oldItem, newItem }) =>
+                                  `\`${oldItem.title}\n${oldItem.price} > ${newItem.price}\`\n`
+                          )
+                          .join('')}`
+                    : '',
             ]
                 .filter((section) => section)
                 .join('\n')
-                .replace(/-/gm, "\\-")
-                .replace(/>/gm, "\\>");
+                .replace(/-/gm, '\\-')
+                .replace(/>/gm, '\\>');
 
             if (!result) {
                 return 'Ничего не поменялось';
