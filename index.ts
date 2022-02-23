@@ -1,4 +1,5 @@
+import { Main } from './src/main';
 
-const message: String = 'Typed Hello World';
+const main = new Main();
 
-console.log(message);
+main.start();
